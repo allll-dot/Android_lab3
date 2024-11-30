@@ -18,8 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         editText.setOnEditorActionListener{_, _ ,_ ->
             var input = editText.text.toString()
-            textView.text = ""
+            textView.text = countNonDigits(input).toString()
             true
         }
+    }
+
+    fun countNonDigits(input: String): Int {
+        val nonDigitCount = input.filter { !it.isDigit() }.count()
+        return nonDigitCount
     }
 }
